@@ -1,0 +1,94 @@
+/* 1400, 1199, 991, 767, 575, 480, 360, 320 */
+
+/*
+Author: 
+Support: 
+Description: 
+Version: 1.0
+*/
+/* CSS Index
+-----------------------------------
+1.default css
+-----------------------------------
+
+/* min-width 1430 */
+@media (min-width: 1430px) {}
+
+/* min-width 1599 */
+@media (max-width: 1599px) {
+/* header section  */
+.main-menu-wrapper {
+    margin-right: 0;
+}
+/* header section  */
+}
+/* min-width 1499 */
+@media (max-width: 1499px) {
+    
+}
+/* max-width 1399 */
+@media (max-width: 1399.98px) {
+/* header section  */
+.header-logo {
+    max-width: 350px;
+}
+/* header section  */
+}
+
+/* max-width 1199 */
+@media (max-width: 1199.98px) {
+  /* header section  */  
+  .header-logo {
+        max-width: 250px;
+    }
+    .main-menu li {
+        margin-right: 10px;
+    }
+    .main-menu-wrapper {
+        gap: 15px;
+    }
+  /* header section  */  
+
+     
+
+
+}
+
+/* max-width 1399 - min-width 992*/
+@media (max-width: 1199.98px) and (min-width: 992px) {}
+
+/* max-width 991 */
+@media (max-width: 991.98px) {
+
+ /* header section  */
+.header-logo {
+    max-width: 200px;
+}
+ /* header section  */
+
+}
+
+/* max-width 767 */
+@media (max-width: 767.98px) {
+
+
+}
+
+/* max-width 575 */
+@media (max-width: 575.98px) {
+
+
+}
+
+/* max-width 479 */
+@media (max-width: 479.98px) {
+
+
+
+}
+
+/* max-width 383 */
+@media (max-width: 383.98px) {
+
+
+}

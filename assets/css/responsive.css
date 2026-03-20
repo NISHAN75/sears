@@ -363,7 +363,9 @@ h6 {
 }
 
 /* portfolio section */
-
+.footer-area {
+    padding: 70px 0;
+}
 }
 
 /* max-width 575 */
@@ -435,7 +437,12 @@ h5 {
 .portfolio-grid-item .btn-1 {
     padding: 10px 15px;
 }
-
+.portfolio-section {
+    padding: 13vw 0 7vw;
+}
+.footer-area {
+    padding: 40px 0;
+}
 }
 
 /* max-width 383 */
@@ -475,6 +482,10 @@ h4 {
     aspect-ratio: 3 / 3;
 }
 /* portfolio section */
+
+.footer-area {
+    padding: 25px 0;
+}
 
 
 }

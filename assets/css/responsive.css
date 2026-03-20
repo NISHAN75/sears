@@ -1,4 +1,4 @@
-/* 1400, 1199, 991, 767, 575, 480, 360, 320 */
+/*1799,1699 , 1599, 1400, 1199, 991, 767, 575, 480, 360, 320 */
 
 /*
 Author: 
@@ -9,12 +9,38 @@ Version: 1.0
 /* CSS Index
 -----------------------------------
 1.default css
+2.header section
+3.slider section 
+4.service-highlights section
+5.portfolio section
+6.footer section
 -----------------------------------
 
 /* min-width 1430 */
 @media (min-width: 1430px) {}
 
-/* min-width 1599 */
+/* max-width 1799 */
+@media (max-width: 1799px) {
+/*  service-highlights section */
+.highlight-img {
+    top: -15vw;
+    max-width: 40vw;
+}
+/*  service-highlights section */
+
+/*  portfolio section */
+.porttfolio-shape {
+    top: 23vw;
+    max-width: 40vw;
+}
+/*  portfolio section */
+}
+/* max-width 1699 */
+@media (max-width: 1699px) {
+
+}
+
+/* max-width 1599 */
 @media (max-width: 1599px) {
 /* header section  */
 .main-menu-wrapper {
@@ -33,10 +59,54 @@ Version: 1.0
     max-width: 350px;
 }
 /* header section  */
+/* service-highlights section */
+.benefits-slider-inner-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+}
+.intro-summary-content-info {
+    margin-right: 0;
+    margin-left: auto;
+}
+/* service-highlights section */
+
+/* portfolio section */
+.serve-area > .container >.row {
+    --bs-gutter-x: 5vw;
+}
+.serve-content-wrapper {
+    max-width: 58vw;
+}
+.serve-content-wrapper .row {
+    --bs-gutter-x: 2vw;
+}
+.serve-bg-wrapper {
+    width: calc(50% - 11vw);
+}
+.porttfolio-shape {
+    top: 37vw;
+    max-width: 37vw;
+}
+.our-work-area h2 ,
+.serve-box-content h2 ,
+.serve-content-wrapper h2 {
+    margin-bottom: 4vw;
+}
+.portfolio-grid-top {
+    grid-template-columns: 1fr 1fr;
+}
+.portfolio-grid-item .btn-1 {
+    padding: 15px 25px;
+    bottom: 2vw;
+}
+/* portfolio section */
+
+
 }
 
 /* max-width 1199 */
 @media (max-width: 1199.98px) {
+
   /* header section  */  
   .header-logo {
         max-width: 250px;
@@ -49,6 +119,57 @@ Version: 1.0
     }
   /* header section  */  
 
+  /* slider section */
+  .hero-slider-item-content h1 {
+        font-size: 60px;
+    }
+    .swiper-horizontal > .swiper-pagination-bullets, 
+    .swiper-pagination-bullets.swiper-pagination-horizontal, 
+    .swiper-pagination-custom, .swiper-pagination-fraction {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .hero-slider-item-content{
+        margin-left: 0;
+    }
+    .hero-slider-item-wrapper {
+        padding: 350px 0 100px;
+    }
+    .swiper-horizontal > .swiper-pagination-bullets, 
+    .swiper-pagination-bullets.swiper-pagination-horizontal, 
+    .swiper-pagination-custom, .swiper-pagination-fraction {
+        left: 5px;
+        transform: none;
+        width: auto;
+        bottom: 5%;
+    }
+  /* slider section */
+
+  /* portfolio section */
+.serve-content-inner-item::before {
+    height: 12px;
+    width: 12px;
+}
+.serve-content-inner-item {
+    padding-left: 24px;
+}
+
+.serve-area {
+    padding: 8vw 0;
+    margin-bottom: 4vw;
+}
+
+.main-menu li:last-child a ,
+.serve-box-content .btn-1.version-2 ,
+.btn-1,
+.intro-summary-content-info .btn-1 {
+    padding: 16px 25px;
+}
+.porttfolio-shape {
+    top: 47vw;
+}
+  /* portfolio section */
+
      
 
 
@@ -58,24 +179,252 @@ Version: 1.0
 @media (max-width: 1199.98px) and (min-width: 992px) {}
 
 /* max-width 991 */
-@media (max-width: 991.98px) {
+@media (max-width: 991.98px) {   
+.hero-slider-item-content h1,
+h1 {
+	font-size: 40px;
+}
+.serve-box-content h2 ,
+h2 {
+	font-size: 36px;
+}
 
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 28px;
+}
+
+h5 {
+	font-size: 24px;
+}
+
+h6 {
+	font-size: 20px;
+}
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
  /* header section  */
 .header-logo {
     max-width: 200px;
 }
  /* header section  */
 
+/* slider section */
+.hero-slider-item-content {
+    max-width: 100%;
+}
+
+.hero-slider-item-wrapper {
+    padding: 250px 0 100px;
+}
+.hero-slider-item-content h1 {
+    padding-left: 20px;
+}
+.hero-slider-item-content::before {
+    top: -8px;
+    height: calc(100% + 16px);
+}
+/* slider section */
+
+/* service-highlights section */
+.intro-summary-content-info {
+    margin-right: auto;
+    margin-left: auto;
+}
+.highlight-img {
+    opacity: 0.5;
+}
+.intro-summary-content-info .btn-1 {
+    margin-top: 10px;
+}
+.intro-summary-content-info .btn-1 {
+    padding: 15px 20px;
+}
+.benefits-slider {
+    padding: 80px 40px;
+    margin-top: 0;
+}
+.benefits-slider-card-wrapper {
+    padding: 40px;
+}
+.benefits-slider-card-content h6, .benefits-slider-card-icon {
+    margin-bottom: 15px;
+}
+.benefits-slider .swiper-slide-active .benefits-slider-card-wrapper {
+    transform: scale(1.2);
+}
+.serve-content-inner-item h6 {
+    font-size: 18px;
+}
+/* service-highlights section */
+
+/* portfolio section */
+.service-highlights-area::before, .highlight-bg {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 6vw));
+}
+.portfolio-section {
+    margin-top: -6vw;
+    padding: 13vw 0;
+}
+.portfolio-gradient {
+    background: linear-gradient(rgb(239, 239, 239) 68.42%, rgb(255, 255, 255) 100%);
+    clip-path: polygon(0px 0px, 100% 6vw, 100% 50%, 100% 100%, 0px calc(100% - 6vw), 0% 50%);
+    height: calc(100% - 18vw);
+}
+.serve-box-content ,
+.serve-content-wrapper {
+    max-width: 100%;
+}
+.serve-bg-wrapper {
+    width: calc(100% + 40px);
+    left: -20px;
+}
+.serve-area > .container >.row {
+    --bs-gutter-y: 30px;
+}
+.serve-area {
+    padding: 0;
+    margin-bottom: 30px;
+}
+.serve-box-content {
+    padding: 8vw 0;
+}
+.serve-content-wrapper .row {
+    --bs-gutter-y: 24px;
+}
+.portfolio-grid-item .btn-1 {
+    padding: 12px 18px;
+}
+.portfolio-grid-top {
+    grid-template-columns: 1fr 1fr;
+}
+
+.portfolio-grid-top .portfolio-grid-item:nth-child(1),
+.portfolio-grid-top .portfolio-grid-item:nth-child(2),
+.portfolio-grid-top .portfolio-grid-item:nth-child(3),
+.portfolio-grid-top .portfolio-grid-item:nth-child(4) {
+    grid-column: auto;
+    grid-row: auto;
+}
+.portfolio-grid-item {
+    aspect-ratio: 4 / 3;
+}
+.portfolio-grid-bottom .portfolio-grid-item {
+    min-height: 100%;
+}
+/* portfolio section */
+
+
+
 }
 
 /* max-width 767 */
 @media (max-width: 767.98px) {
+.main-menu li:last-child a, .btn-1 {
+    gap: 10px;
+}
+.serve-box-content .btn-1.version-2, 
+.btn-1, 
+.intro-summary-content-info .btn-1 {
+    padding: 12px 18px;
+}    
+/* slider section */
+.hero-slider-item-wrapper {
+    padding: 200px 0 80px;
+}
+/* slider section */
 
+
+/* service-highlights section */
+.benefits-slider-card-wrapper {
+    padding: 30px;
+}
+.benefits-slider-card-icon svg {
+    height: 60px;
+    width: 60px;
+}
+.serve-box-content {
+    padding: 12vw 0;
+}
+/* service-highlights section */
+
+/* portfolio section */
+.portfolio-grid-top ,
+.portfolio-grid-bottom {
+    grid-template-columns: 1fr;
+}
+.portfolio-grid-item {
+    aspect-ratio: 5 / 3;
+}
+
+/* portfolio section */
 
 }
 
 /* max-width 575 */
 @media (max-width: 575.98px) {
+.hero-slider-item-content h1,
+h1 {
+	font-size: 36px;
+}
+.serve-box-content h2 ,
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 28px;
+}
+
+h4 {
+	font-size: 26px;
+}
+
+h5 {
+	font-size: 22px;
+}
+
+/* slider section */
+.hero-slider-item-wrapper {
+    padding:160px 0 60px;
+}
+.swiper-pagination-bullet {
+    height: 10px;
+    width: 10px;
+}
+.hero-slider .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap,6px) !important;
+}
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    left: 8px;
+}
+/* slider section */
+
+/* service-highlights section */
+.benefits-slider .swiper-slide-active .benefits-slider-card-wrapper {
+    transform: scale(1);
+}
+.benefits-slider {
+    padding: 40px 30px;
+    margin-top: 0;
+    padding-top: 20px;
+}
+.benefits-slider-card-icon svg {
+    height: 50px;
+    width: 50px;
+}
+/* service-highlights section */
+
+/* portfolio section */
+.portfolio-grid-item {
+    aspect-ratio: 4 / 3;
+}
+/* portfolio section */
 
 
 }
@@ -83,12 +432,49 @@ Version: 1.0
 /* max-width 479 */
 @media (max-width: 479.98px) {
 
-
+.portfolio-grid-item .btn-1 {
+    padding: 10px 15px;
+}
 
 }
 
 /* max-width 383 */
 @media (max-width: 383.98px) {
+
+.hero-slider-item-content h1,
+h1 {
+	font-size: 30px;
+}
+.serve-box-content h2 ,
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+/* slider section */
+.hero-slider-item-wrapper {
+    padding:160px 0 80px;
+}
+/* slider section */
+
+/* service-highlights section */
+.benefits-slider-card-wrapper {
+    padding: 20px;
+}
+/* service-highlights section */
+
+/* portfolio section */
+.portfolio-grid-item {
+    aspect-ratio: 3 / 3;
+}
+/* portfolio section */
 
 
 }

@@ -28,29 +28,96 @@
         
         //  slider
 
+        // let heroSlider = new Swiper(".hero-slider", {
+        //     loop: true,
+        //     autoplay: {
+        //         delay: 3000,
+        //         disableOnInteraction: false,
+        //     },
+        //     pagination: {
+        //         el: ".swiper-pagination",
+        //         clickable: true,
+        //     },
+        //     slideToClickedSlide: true,
+        //     speed: 800,
+        // });
+        function animateHeroSlide(activeSlide) {
+            let heroElementInfo = activeSlide.querySelector(".hero-slider-item-content");
+
+            gsap.fromTo(
+                heroElementInfo,
+                {
+                    y: 50,
+                    opacity: 0,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out",
+                }
+            );
+        }
         let heroSlider = new Swiper(".hero-slider", {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             pagination: {
                 el: ".swiper-pagination",
+                clickable: true,
+            },
+            slideToClickedSlide: true,
+            speed: 800,
+            on: {
+                init: function () {
+                    let activeSlide = this.slides[this.activeIndex];
+                    animateHeroSlide(activeSlide);
+                },
+                slideChangeTransitionStart: function () {
+                    // reset animation
+                    this.slides.forEach((slide) => {
+                        let heroElement = slide.querySelector(".hero-slider-item-content");
+                        if (heroElement) {
+                            gsap.set(heroElement, { opacity: 0, y: 50 });
+                        }
+                    });
+                },
+                slideChangeTransitionEnd: function () {
+                    let activeSlide = this.slides[this.activeIndex];
+                    animateHeroSlide(activeSlide);
+                },
             },
         });
         let benefitsSlider = new Swiper(".swiper.benefits-slider", {
-            spaceBetween: 45,
+
             centeredSlides: true,
-            loop:true,
+            loop: true,
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
-
             breakpoints: {
                 0: {
-                    slidesPerView: 1
+                    slidesPerView: 1,
+                    spaceBetween: 50
                 },
                 576: {
-                    slidesPerView: 2
+                    slidesPerView: 2,
+                    spaceBetween: 25
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
                 },
                 992: {
-                    slidesPerView: 3
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 45
                 }
             }
         });
@@ -78,65 +145,46 @@
         }
         setupToggleMenu(".mobile-nav a", ".sub-menu", ".menu-item-has-children");
 
-        // Magnific popup
-        // $(document).on('click', '.trigger-popup', function (e) {
-        //     e.preventDefault();
-        //     $.magnificPopup.open({
-        //         items: {
-        //             src: $(this).attr('href')
-        //         },
-        //         type: 'iframe',
-        //         iframe: {
-        //             markup: '<div class="mfp-iframe-scaler">' +
-        //                 '<div class="mfp-close"></div>' +
-        //                 '<iframe class="mfp-iframe" frameborder="0" allowfullscreen allow="autoplay *; fullscreen *"></iframe>' +
-        //                 '</div>',
-        //             patterns: {
-        //                 youtube: {
-        //                     index: 'youtube.com/',
-        //                     id: function (url) {
-        //                         var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
-        //                         if (!m || !m[1]) return null;
-        //                         return m[1];
-        //                     },
-        //                     src: '//www.youtube.com/embed/%id%?autoplay=1&iframe=true'
-        //                 },
-        //                 vimeo: {
-        //                     index: 'vimeo.com/',
-        //                     id: function (url) {
-        //                         var m = url.match(/(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/);
-        //                         if (!m || !m[5]) return null;
-        //                         return m[5];
-        //                     },
-        //                     src: '//player.vimeo.com/video/%id%?autoplay=1'
-        //                 }
-        //             }
-        //         },
-        //         callbacks: {
-        //             open: function () {
-        //                 let iframe = jQuery('.mfp-content iframe');
-        //                 let player = new Vimeo.Player(iframe);
+        gsap.registerPlugin(ScrollTrigger);
+        function initAnimation() {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            if (window.innerWidth > 991) {
+                gsap.utils.toArray(".animation-line").forEach((element) => {
+                    const delay = parseFloat(element.getAttribute("data-delay")) || 0;
 
-        //                 player.on('ended', function () {
-        //                     jQuery.magnificPopup.close();
-        //                 });
-        //             },
-        //             close: function () {
-        //                 let video = document.getElementById("placeholder-video");
-        //                 if (video) {
-        //                     video.play();
-        //                 }
-        //             }
-        //         }
-        //     });
-        // });
-        // nice select
-        $('select').niceSelect();
-
-        $(".top-to-button").on("click", function (e) {
-            e.preventDefault();
-            lenis.scrollTo(0)
+                    gsap.fromTo(
+                        element,
+                        {
+                            y: 30,
+                            opacity: 0,
+                        },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 1.5,
+                            delay: delay / 1000,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: element,
+                                start: "top 100%",
+                                toggleActions: "play none none none"
+                            },
+                        }
+                    );
+                });
+            }
+        }
+        initAnimation();
+        let resizeTimeout;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                initAnimation();
+            }, 300);
         });
+
+
+
 
 
 
@@ -160,24 +208,7 @@
         });
 
 
-        gsap.registerPlugin(ScrollTrigger);
-        let tl = gsap.timeline();
-        let otherSections = document.querySelectorAll('.industry-slider-item ')
 
-        otherSections.forEach((section, index) => {
-            tl.to(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    pin: section,
-                    scrub: false,
-                    start: 'top 0%',
-                    end: "bottom 100%",
-                    endTrigger: '.slider-wrapper',
-                    pinSpacing: false,
-                    markers: false,
-                },
-            })
-        })
 
 
 
@@ -205,31 +236,7 @@
         gsap.ticker.lagSmoothing(0);
         // lenis
 
-        	if (window.innerWidth > 991) {
-			// animation line
-			gsap.utils.toArray(".animation-line").forEach((element) => {
-				const delay = parseFloat(element.getAttribute("data-delay")) || 0;
-				gsap.fromTo(
-					element,
-					{
-						y: 30,
-						opacity: 0,
-					},
-					{
-						y: 0,
-						opacity: 1,
-						duration: 1.5,
-						delay: delay / 1000,
-						ease: "power2.out",
-						scrollTrigger: {
-							trigger: element,
-							start: "top 100%",
-							toggleActions: "play none none none"
-						},
-					}
-				);
-			});
-        }
+        	
 
 
 

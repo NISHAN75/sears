@@ -183,6 +183,29 @@
             }, 300);
         });
 
+         // nice select
+        $('select').niceSelect();
+
+        // file upload
+        $(".btn-attach").on("click", function () {
+            $("#fileInput").val(""); // reset previous file (important)
+            $("#fileInput").click();
+        });
+
+        $("#fileInput").on("change", function () {
+            if (this.files.length > 0) {
+                let file = this.files[0];
+                $("#fileName").text(file.name);
+                $("#filePreview").css("display", "block");
+            }
+        });
+        $(".remove-icon").on("click", function () {
+            $("#fileInput").val("");
+            $("#fileName").text("");
+            $("#filePreview").hide();
+        });
+
+
 
 
 

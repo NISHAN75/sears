@@ -332,7 +332,8 @@ h6 {
 .btn-1, 
 .intro-summary-content-info .btn-1 {
     padding: 12px 18px;
-}    
+}   
+ 
 /* slider section */
 .hero-slider-item-wrapper {
     padding: 200px 0 80px;
@@ -390,7 +391,9 @@ h4 {
 h5 {
 	font-size: 22px;
 }
-
+.header-logo {
+    max-width: 150px;
+}
 /* slider section */
 .hero-slider-item-wrapper {
     padding:160px 0 60px;
